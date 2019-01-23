@@ -1,9 +1,6 @@
-# README
+#Software Engineering Methods
 
-We are at the dawn of humanity, and the tools being built today are  the  tools that will forge our future
-through pain, tears and sweat. By creating this pupulation-management application we will be able to improve
-the quality of life from hundreds of millions of families.
-
-I wonder how long will it take for someone from my team to find out.
-
-Long live the queen!
+- Master Build Status [![Build Status](https://travis-ci.org/tsarevpp/sem.svg?branch=master)](https://travis-ci.org/tsarevpp/sem)
+- Develop Build Status [![Build Status](https://travis-ci.org/tsarevpp/sem.svg?branch=develop)](https://travis-ci.org/tsarevpp/sem)
+- License [![LICENSE](https://img.shields.io/github/license/tsarevpp/sem.svg?style=flat-square)](https://github.com/tsarevpp/sem/blob/master/LICENSE)
+- Release [![Releases](https://img.shields.io/github/release/tsarevpp/sem/all.svg?style=flat-square)](https://github.com/tsarevpp/sem/releases)
