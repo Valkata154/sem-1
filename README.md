@@ -24,4 +24,4 @@ If it still doesn't work:
 1. Go to Settings -> Version Control
 2. Click the Plus button on the right
 3. Click on directory and select db/test_db
-4. Delete docker images and containers
+4. Delete docker images and containers and run again
