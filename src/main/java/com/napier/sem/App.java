@@ -76,6 +76,11 @@ public class App {
             } catch (SQLException sqle) {
                 System.out.println("Failed to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+
+                }
             }
         }
     }
