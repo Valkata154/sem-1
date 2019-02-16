@@ -1,19 +1,18 @@
 package com.napier.sem;
 
+import com.napier.sem.storage.Database;
+
 import java.sql.*;
 
 public class App {
 
-
-    // Connection to the database
-    private Connection con = null;
+    private static Database db = null;
 
     public static void main(String[] args) {
         //Create a new Application
         App a = new App();
 
-        //Connect to database
-        a.connect();
+        db = new Database("mysql://db:3306/employees", "root", "example");
 
         //Get employee
         Employee emp = a.getEmployee(255530);
@@ -24,75 +23,29 @@ public class App {
         }
 
         //Disconnect from database
-        a.disconnect();
+        db.disconnect();
     }
 
     public Employee getEmployee(int ID) {
+        // Execute SQL statement
+        ResultSet rset = db.query("SELECT emp_no, first_name, last_name "
+                + "FROM employees "
+                + "WHERE emp_no = " + ID);
+        // Check one is returned
         try {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT emp_no, first_name, last_name "
-                            + "FROM employees "
-                            + "WHERE emp_no = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
             if (rset.next()) {
                 Employee emp = new Employee();
                 emp.emp_no = rset.getInt("emp_no");
                 emp.first_name = rset.getString("first_name");
                 emp.last_name = rset.getString("last_name");
                 return emp;
-            } else
+            } else {
                 return null;
-        } catch (Exception e) {
+            }
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get employee details");
             return null;
-        }
-    }
-
-    public void connect() {
-        try {
-            // Load Database driver
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 100;
-        for (int i = 0; i < retries; ++i) {
-            System.out.println("Connecting to database...");
-            try {
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/employees?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                // Exit for loop
-                break;
-            } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-
-                }
-            }
-        }
-    }
-
-    public void disconnect() {
-        if (con != null) {
-            try {
-                // Close connection
-                con.close();
-            } catch (Exception e) {
-                System.out.println("Error closing connection to database");
-            }
         }
     }
 }
