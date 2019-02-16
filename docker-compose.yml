@@ -7,6 +7,8 @@ services:
       - db
     environment:
       WAIT_HOSTS: db:3306
+      WAIT_HOSTS_TIMEOUT: 120
+      WAIT_SLEEP_INTERVAL: 5
   # db is is db folder
   db:
     build: db/.
