@@ -27,7 +27,7 @@ public class App {
 
         //Display employees with salaries
         for(Employee e : emps){
-            System.out.println(e);
+            System.out.println(e.first_name + " " + e.last_name + " - " + e.salary);
         }
 
         //Disconnect from database
