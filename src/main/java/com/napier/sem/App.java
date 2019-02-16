@@ -17,11 +17,17 @@ public class App {
 
         //Get employee
         Employee emp = a.getEmployee(255530);
-        a.getAllSalaries();
+
+        ArrayList<Employee> emps = a.getAllSalaries();
 
         //Display Employee Details
         if (emp != null) {
             System.out.println(emp);
+        }
+
+        //Display employees with salaries
+        for(Employee e : emps){
+            System.out.println(e);
         }
 
         //Disconnect from database
