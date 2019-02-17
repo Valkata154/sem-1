@@ -25,8 +25,9 @@ public class App {
             System.out.println(emp);
         }
 
-        //Display employees with salaries
-        for(Employee e : emps){
+        //Display first 1000 employees with salaries - otherwise list is too long
+        for(int i=0; i<1000; i++){
+            Employee e = emps.get(i);
             System.out.println(e.first_name + " " + e.last_name + " - " + e.salary);
         }
 
