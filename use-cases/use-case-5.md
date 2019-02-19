@@ -1,10 +1,10 @@
-# USE CASE: 4 Produce a Report on the Salary of Employees of a Given Role
+# USE CASE: 5 Add new employee's details
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As an *HR advisor* I want *to produce a report on the salary of employees of a given role* so that *I can support financial reporting of the organisation.*
+As an HR advisor I want to add a new employee's details so that I can ensure the new employee is paid.
 
 ### Scope
 
@@ -16,15 +16,15 @@ Primary task.
 
 ### Preconditions
 
-We know the role.  Database contains current employee salary data.
+We have the new employee's details. Database allows to add new employee's details.
 
 ### Success End Condition
 
-A report is available for HR to provide to finance.
+Employee's details are added therefor he can be paid.
 
 ### Failed End Condition
 
-No report is produced.
+Employee's details are not added.
 
 ### Primary Actor
 
@@ -32,11 +32,11 @@ HR Advisor.
 
 ### Trigger
 
-A request for finance information is sent to HR.
+A new employee is hired.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Finance request salary information for a given role.
+1. A new employee is hired.
 2. HR advisor captures name of the role to get salary information for.
 3. HR advisor extracts current salary information of all employees of the given role.
 4. HR advisor provides report to finance.
