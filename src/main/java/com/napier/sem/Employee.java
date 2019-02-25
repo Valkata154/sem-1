@@ -32,12 +32,12 @@ public class Employee {
     /**
      * Employee's current department
      */
-    public String dept_name;
+    public Department dept;
 
     /**
      * Employee's manager
      */
-    public String manager;
+    public Employee manager;
 
     public String toString() {
         return emp_no + " "
@@ -45,7 +45,7 @@ public class Employee {
                 + last_name + "\n"
                 + title + "\n"
                 + "Salary:" + salary + "\n"
-                + dept_name + "\n"
-                + "Manager: " + manager + "\n";
+                + dept.name + "\n"
+                + "Manager: " + manager.first_name + " " + manager.last_name + "\n";
     }
 }
