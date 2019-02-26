@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.storage.Database;
 
+import javax.swing.text.DefaultEditorKit;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class App {
         ArrayList<Employee> empsbytitle = new ArrayList<>();
         empsbytitle = a.getEmployeeByRole("Engineer");
         for (int i = 0; i < 1000; i++) {
-            Employee e = emps.get(i);
+            Employee e = empsbytitle.get(i);
             System.out.println(e.first_name + " " + e.last_name + " " + e.salary);
         }
 
@@ -44,6 +45,12 @@ public class App {
         //Get Salary by department
         System.out.println("SALES DEPARTMENT");
         Department dept = a.getDepartment("Sales");
+        ArrayList<Employee> empsbydepart = new ArrayList<>();
+        empsbydepart = a.getSalariesByDepartment(dept);
+        for(int i = 0; i < 1000; i++){
+            Employee e = empsbydepart.get(i);
+            System.out.println(e.emp_no + " " + e.first_name + " " + e.last_name + " " + e.salary);
+        }
         System.out.println(dept.toString());
 
 
@@ -52,7 +59,7 @@ public class App {
     }
 
     //Method to get employee by their ID
-    public Employee getEmployee(int ID) {
+   private Employee getEmployee(int ID) {
         // Execute SQL statement
         ResultSet rset = db.query("SELECT emp_no, first_name, last_name "
                 + "FROM employees "
@@ -75,24 +82,36 @@ public class App {
         }
     }
 
-    //Method to get Department by its' name
-    public Department getDepartment(String name) {
+    //Method to get department by name
+    private Department getDepartment(String dept_name) {
+        try{
+            ResultSet rset = db.query("SELECT dept_name " +
+                    " FROM departments " +
+                    " WHERE dept_name= \"" + dept_name + "\"");
+            Department dep = new Department();
+            return  dep;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get department");
+            return null;
+        }
+    }
+
+    //Method to get salaries based by department
+    private ArrayList<Employee> getSalariesByDepartment(Department department) {
         //Execute SQL Statement
-        ResultSet rset = db.query("SELECT dept_no, dept_name, emp_no "
-                + "FROM departments, dept_manager, employees "
-                + "WHERE departments.dept_no = dept_manager.dept_no "
-                + "AND dept_manager.emp_no = employees.emp_no "
-                + "AND dept_name = " + name);
-        try {
-            if(rset.next()) {
-                Department dept = new Department();
-                dept.dept_no = rset.getInt("dept_no");
-                dept.name = rset.getString("dept_name");
-                dept.manager = getEmployee(rset.getInt("emp_no"));
-                return dept;
-            } else {
-                return null;
-            }
+        try{
+        ResultSet rset = db.query("SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary " +
+                        " FROM departments, dept_emp, salaries, employees " +
+                        " WHERE employees.emp_no = salaries.emp_no " +
+                        " AND dept_emp.emp_no = employees.emp_no " +
+                        " AND dept_emp.dept_no = departments.dept_no " +
+                        " AND salaries.to_date = '9999-01-01'" +
+                        " AND departments.dept_name = \"" + department.dept_name + "\"" +
+                        " ORDER BY employees.emp_no ");
+            ArrayList<Employee> employees = new ArrayList<Employee>();
+            createEmployee(rset, employees);
+            return employees;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get Department details");

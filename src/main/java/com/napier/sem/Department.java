@@ -14,7 +14,7 @@ public class Department {
     /**
      *  Department name
      */
-    public String name;
+    public String dept_name;
 
     /**
      * Manager
@@ -23,7 +23,7 @@ public class Department {
 
     public String toString() {
         return dept_no + " \n"
-                + name + " \n"
+                + dept_name + " \n"
                 + manager.first_name + " \n"
                 + manager.last_name + "\n";
     }
