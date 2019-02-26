@@ -44,8 +44,8 @@ public class Employee {
                 + first_name + " "
                 + last_name + "\n"
                 + title + "\n"
-                + "Salary:" + salary + "\n"
-                + dept.name + "\n"
-                + "Manager: " + manager.first_name + " " + manager.last_name + "\n";
+                + "Salary:" + salary + "\n";
+                //+ dept.name + "\n"
+                //+ "Manager: " + manager.first_name + " " + manager.last_name + "\n"
     }
 }

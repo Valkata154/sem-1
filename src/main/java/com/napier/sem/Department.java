@@ -21,6 +21,12 @@ public class Department {
      */
     public Employee manager;
 
+    public String toString() {
+        return dept_no + " \n"
+                + name + " \n"
+                + manager.first_name + " \n"
+                + manager.last_name + "\n";
+    }
 
 
 

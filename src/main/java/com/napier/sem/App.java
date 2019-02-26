@@ -41,8 +41,10 @@ public class App {
         }
 
 
-        //Get Salary by epartment
-
+        //Get Salary by department
+        System.out.println("SALES DEPARTMENT");
+        Department dept = a.getDepartment("Sales");
+        System.out.println(dept.toString());
 
 
         //Disconnect from database
@@ -141,7 +143,7 @@ public class App {
         }
     }
 
-    private ArrayList<Employee> getSalariesByDepartment(int dept_no) {
+    public ArrayList<Employee> getSalariesByDepartment(int dept_no) {
         try {
             ResultSet rset = db.query("SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary " +
                     "FROM employees, salaries, dept_emp, departments " +
