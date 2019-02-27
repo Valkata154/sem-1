@@ -14,7 +14,7 @@ public class App {
         //Create a new Application
         App a = new App();
 
-        db = new Database("mysql://db:3306/employees", "root", "albert-sapo");
+        db = new Database("mysql://mysql:3306/world", "root", "albert-sapo");
 
         //Disconnect from database
         db.disconnect();
