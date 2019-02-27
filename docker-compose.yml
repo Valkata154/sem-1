@@ -19,7 +19,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: albert-sapo
     ports:
-      - "3306:3306"
+      - "33060:3306"
     expose:
       - "3306"
 
