@@ -16,23 +16,43 @@ public class City {
         this.population = population;
     }
 
+    /**
+     * @return int The population of the city
+     */
     public int getPopulation() {
         return population;
     }
 
+    /**
+     * @return The city identification number
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @return The name of the city
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return The ISO 3166-1 alpha-3 country code
+     */
     public String getCountryCode() {
         return countryCode;
     }
 
+    /**
+     * @return The city district
+     */
     public String getDistrict() {
         return district;
+    }
+
+    @Override
+    public String toString() {
+        return this.getId() + ": " + this.getName();
     }
 }
