@@ -1,10 +1,8 @@
 package com.napier.sem;
 
+import com.napier.sem.domain.City;
+import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.storage.Database;
-
-import javax.swing.text.DefaultEditorKit;
-import java.sql.*;
-import java.util.ArrayList;
 
 public class App {
 
@@ -15,6 +13,12 @@ public class App {
         App a = new App();
 
         db = new Database("mysql://mysql:3306/world", "root", "albert-sapo");
+
+        CityRepository cr = new CityRepository(db);
+
+        for (City city : cr.getAll()) {
+            System.out.println(city.getName());
+        }
 
         //Disconnect from database
         db.disconnect();
