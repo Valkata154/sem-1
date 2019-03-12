@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class CountryRepository implements ICountryRepository {
 
-    private HashMap<String, Country> cities = new HashMap<>();
+    private HashMap<String, Country> countries = new HashMap<>();
 
     public CountryRepository(Database db) {
 
@@ -36,7 +36,7 @@ public class CountryRepository implements ICountryRepository {
                 // Create city
                 Country country = new Country(code, name, continent, region, surfaceArea, indepYear, population, lifeExpectancy, GNP, GNPOld, localName, governmentForm, headOfState, capital, code2);
 
-                cities.put(code, country);
+                countries.put(code, country);
             }
 
         } catch (SQLException e) {
@@ -46,11 +46,12 @@ public class CountryRepository implements ICountryRepository {
 
     @Override
     public Collection<Country> getAll() {
-        return cities.values();
+        return countries.values();
     }
 
     @Override
     public Country getCode(String code) {
-        return cities.get(code);
+        return countries.get(code);
     }
+
 }
