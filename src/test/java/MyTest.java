@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class MyTest
-{
+{/*
     @Test
     void unitTest()
     {
@@ -69,5 +69,5 @@ class MyTest
     void throwsException() throws NullPointerException
     {
         throw new NullPointerException();
-    }
+    }*/
 }
