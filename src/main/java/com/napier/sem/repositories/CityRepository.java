@@ -5,8 +5,7 @@ import com.napier.sem.storage.Database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 public class CityRepository implements ICityRepository {
 
@@ -42,5 +41,30 @@ public class CityRepository implements ICityRepository {
     @Override
     public City getId(int id) {
         return cities.get(id);
+    }
+
+    /**
+     *This method returns a list with all the cities in the world, in a continent, in a region, in a country or in a district ordered by population.
+     * By default it returns the list with all the countries in the world.
+     * @param where dictates whether we are comparing within a continent, a region, a country or a district
+     * @param name chooses the continent, region, country or district
+     * @param nProvided says the number of cities that should be selected from the resulting list
+     *
+     * @return A list with either all or the first N cities in the world, in a continent, in a region, in a country or in a district ordered by population.
+     */
+    public Collection<City> getAllByPopulation(String where, String name, int nProvided){
+        switch (where){
+            default:
+                List<City> report = new ArrayList<>(cities.values());
+                report.sort(Comparator.comparing(City::getPopulation).reversed());
+                if(nProvided == 0){
+                    return report;
+                }
+                else{
+                    return report.subList(0,nProvided);
+                }
+
+        }
+
     }
 }

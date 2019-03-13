@@ -16,11 +16,14 @@ public class App {
 
         db = new Database("mysql://mysql:3306/world", "root", "albert-sapo");
 
-        CityRepository cr = new CityRepository(db);
+        CityRepository cityR = new CityRepository(db);
         CountryRepository countryR = new CountryRepository(db);
 
-        for(Country country : countryR.getAllByPopulation("","", 5)){
+        /*for(Country country : countryR.getAllByPopulation("","", 5)){
             System.out.println(country.toString());
+        }*/
+        for(City city : cityR.getAllByPopulation("", "", 25)){
+            System.out.println(city.toString());
         }
 
         //Disconnect from database
