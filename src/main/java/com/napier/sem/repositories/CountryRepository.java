@@ -58,10 +58,11 @@ public class CountryRepository implements ICountryRepository {
      * By default it returns the list with all the countries in the world.
      * @param where dictates whether we are comparing within a continent or a region
      * @param name chooses the continent or region
+     * @param nProvided says the number of countries that should be selected from the resulting list
      *
-     * @return A list with either all the countries in the world, a continent or a region ordered by population.
+     * @return A list with either all or the first N countries in the world, in a continent or in a region ordered by population.
      */
-    public Collection<Country> getAllByPopulation(String where, String name){
+    public Collection<Country> getAllByPopulation(String where, String name, int nProvided){
         switch (where){
             case "continent":
                 List<Country> reportContinent = new ArrayList<>();
@@ -71,7 +72,12 @@ public class CountryRepository implements ICountryRepository {
                     }
                 }
                 reportContinent.sort(Comparator.comparing(Country::getPopulation).reversed());
-                return reportContinent;
+                if(nProvided == 0){
+                    return reportContinent;
+                }
+                else {
+                    return reportContinent.subList(0,nProvided);
+                }
             case "region":
                 List<Country> reportRegion = new ArrayList<>();
                 for (Country country : countries.values()){
@@ -80,11 +86,21 @@ public class CountryRepository implements ICountryRepository {
                     }
                 }
                 reportRegion.sort(Comparator.comparing(Country::getPopulation).reversed());
-                return reportRegion;
+                if(nProvided == 0){
+                    return reportRegion;
+                }
+                else {
+                    return reportRegion.subList(0,nProvided);
+                }
             default:
                 List<Country> report = new ArrayList<>(countries.values());
                 report.sort(Comparator.comparing(Country::getPopulation).reversed());
-                return report;
+                if(nProvided == 0){
+                    return report;
+                }
+                else {
+                    return report.subList(0,nProvided);
+                }
         }
 
     }

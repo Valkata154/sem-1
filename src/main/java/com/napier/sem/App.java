@@ -19,7 +19,7 @@ public class App {
         CityRepository cr = new CityRepository(db);
         CountryRepository countryR = new CountryRepository(db);
 
-        for(Country country : countryR.getAllByPopulation("continent","Asia")){
+        for(Country country : countryR.getAllByPopulation("","", 5)){
             System.out.println(country.toString());
         }
 
