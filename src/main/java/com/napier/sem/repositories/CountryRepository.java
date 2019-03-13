@@ -53,12 +53,39 @@ public class CountryRepository implements ICountryRepository {
         return countries.get(code);
     }
 
-    /*
-     *This method returns a list with all the countries in the world ordered by population.
+    /**
+     *This method returns a list with all the countries in the world, in a continent or in a region ordered by population.
+     * By default it returns the list with all the countries in the world.
+     * @param where dictates whether we are comparing within a continent or a region
+     * @param name chooses the continent or region
+     *
+     * @return A list with either all the countries in the world, a continent or a region ordered by population.
      */
-    public Collection<Country> getAllByPopulation(){
-        List<Country> report = new ArrayList<>(countries.values());
-        report.sort(Comparator.comparing(Country::getPopulation).reversed());
-        return report;
+    public Collection<Country> getAllByPopulation(String where, String name){
+        switch (where){
+            case "continent":
+                List<Country> reportContinent = new ArrayList<>();
+                for (Country country : countries.values()){
+                    if(country.getContinent().equals(name)){
+                        reportContinent.add(country);
+                    }
+                }
+                reportContinent.sort(Comparator.comparing(Country::getPopulation).reversed());
+                return reportContinent;
+            case "region":
+                List<Country> reportRegion = new ArrayList<>();
+                for (Country country : countries.values()){
+                    if(country.getRegion().equals(name)){
+                        reportRegion.add(country);
+                    }
+                }
+                reportRegion.sort(Comparator.comparing(Country::getPopulation).reversed());
+                return reportRegion;
+            default:
+                List<Country> report = new ArrayList<>(countries.values());
+                report.sort(Comparator.comparing(Country::getPopulation).reversed());
+                return report;
+        }
+
     }
 }
