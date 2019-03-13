@@ -5,8 +5,7 @@ import com.napier.sem.storage.Database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 public class CountryRepository implements ICountryRepository {
 
@@ -54,4 +53,12 @@ public class CountryRepository implements ICountryRepository {
         return countries.get(code);
     }
 
+    /*
+     *This method returns a list with all the countries in the world ordered by population.
+     */
+    public Collection<Country> getAllByPopulation(){
+        List<Country> report = new ArrayList<>(countries.values());
+        report.sort(Comparator.comparing(Country::getPopulation).reversed());
+        return report;
+    }
 }

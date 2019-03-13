@@ -2,6 +2,8 @@ package com.napier.sem;
 
 import com.napier.sem.domain.City;
 import com.napier.sem.repositories.CityRepository;
+import com.napier.sem.repositories.CountryRepository;
+import com.napier.sem.domain.Country;
 import com.napier.sem.storage.Database;
 
 public class App {
@@ -15,9 +17,10 @@ public class App {
         db = new Database("mysql://mysql:3306/world", "root", "albert-sapo");
 
         CityRepository cr = new CityRepository(db);
+        CountryRepository countryR = new CountryRepository(db);
 
-        for (City city : cr.getAll()) {
-            System.out.println(city.getName());
+        for(Country country : countryR.getAllByPopulation()){
+            System.out.println(country.toString());
         }
 
         //Disconnect from database
