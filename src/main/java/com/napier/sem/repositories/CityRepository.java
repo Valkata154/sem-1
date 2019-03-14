@@ -56,6 +56,50 @@ public class CityRepository implements ICityRepository {
      */
     public Collection<City> getAllByPopulation(CountryRepository countryR, String where, String name, int nProvided){
         switch (where){
+            case "region":
+                List<City> reportRegion = new ArrayList<>();
+                List<Country> countriesInRegion = new ArrayList<>();
+                for(Country country : countryR.getAll()){
+                    if(country.getRegion().equals(name)){
+                        countriesInRegion.add(country);
+                    }
+                }
+                for(Country country : countriesInRegion) {
+                    for (City city : cities.values()) {
+                        if (city.getCountryCode().equals(country.getISO3Code())) {
+                            reportRegion.add(city);
+                        }
+                    }
+                }
+                reportRegion.sort(Comparator.comparing(City::getPopulation).reversed());
+                if(nProvided == 0){
+                    return reportRegion;
+                }
+                else{
+                    return reportRegion.subList(0,nProvided);
+                }
+            case "country":
+                List<City> reportCountry = new ArrayList<>();
+                String codeCountry = "";
+                for(Country country : countryR.getAll()){
+                    if(country.getName().equals(name)){
+                        codeCountry = country.getISO3Code();
+                        break;
+                    }
+                }
+                for(City city : cities.values()){
+                    if(city.getCountryCode().equals(codeCountry)){
+                        reportCountry.add(city);
+                    }
+                }
+                reportCountry.sort(Comparator.comparing(City::getPopulation).reversed());
+                if(nProvided == 0){
+                    return reportCountry;
+                }
+                else{
+                    return reportCountry.subList(0,nProvided);
+                }
+
             case "continent":
                 List<City> reportContinent = new ArrayList<>();
                 List<Country> countriesInContinent = new ArrayList<>();
@@ -77,27 +121,6 @@ public class CityRepository implements ICityRepository {
                 }
                 else{
                     return reportContinent.subList(0,nProvided);
-                }
-            case "country":
-                List<City> reportCountry = new ArrayList<>();
-                String code = "";
-                for(Country country : countryR.getAll()){
-                    if(country.getName().equals(name)){
-                        code = country.getISO3Code();
-                        break;
-                    }
-                }
-                for(City city : cities.values()){
-                    if(city.getCountryCode().equals(code)){
-                        reportCountry.add(city);
-                    }
-                }
-                reportCountry.sort(Comparator.comparing(City::getPopulation).reversed());
-                if(nProvided == 0){
-                    return reportCountry;
-                }
-                else{
-                    return reportCountry.subList(0,nProvided);
                 }
             default:
                 List<City> report = new ArrayList<>(cities.values());

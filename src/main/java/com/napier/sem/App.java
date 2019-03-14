@@ -22,7 +22,7 @@ public class App {
         /*for(Country country : countryR.getAllByPopulation("","", 5)){
             System.out.println(country.toString());
         }*/
-        for(City city : cityR.getAllByPopulation(countryR,"continent", "Asia", 25)){
+        for(City city : cityR.getAllByPopulation(countryR,"region", "Southern Europe", 0)){
             System.out.println(city.toString());
         }
 
