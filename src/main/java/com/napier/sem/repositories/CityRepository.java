@@ -1,6 +1,7 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.domain.City;
+import com.napier.sem.domain.Country;
 import com.napier.sem.storage.Database;
 
 import java.sql.ResultSet;
@@ -46,14 +47,58 @@ public class CityRepository implements ICityRepository {
     /**
      *This method returns a list with all the cities in the world, in a continent, in a region, in a country or in a district ordered by population.
      * By default it returns the list with all the countries in the world.
+     * @param countryR gets the country repository in order to get missing information for certain reports
      * @param where dictates whether we are comparing within a continent, a region, a country or a district
      * @param name chooses the continent, region, country or district
      * @param nProvided says the number of cities that should be selected from the resulting list
      *
      * @return A list with either all or the first N cities in the world, in a continent, in a region, in a country or in a district ordered by population.
      */
-    public Collection<City> getAllByPopulation(String where, String name, int nProvided){
+    public Collection<City> getAllByPopulation(CountryRepository countryR, String where, String name, int nProvided){
         switch (where){
+            case "continent":
+                List<City> reportContinent = new ArrayList<>();
+                List<Country> countriesInContinent = new ArrayList<>();
+                for(Country country : countryR.getAll()){
+                    if(country.getContinent().equals(name)){
+                        countriesInContinent.add(country);
+                    }
+                }
+                for(Country country : countriesInContinent) {
+                    for (City city : cities.values()) {
+                        if (city.getCountryCode().equals(country.getISO3Code())) {
+                            reportContinent.add(city);
+                        }
+                    }
+                }
+                reportContinent.sort(Comparator.comparing(City::getPopulation).reversed());
+                if(nProvided == 0){
+                    return reportContinent;
+                }
+                else{
+                    return reportContinent.subList(0,nProvided);
+                }
+            case "country":
+                List<City> reportCountry = new ArrayList<>();
+                String code = "";
+                for(Country country : countryR.getAll()){
+                    if(country.getName().equals(name)){
+                        code = country.getISO3Code();
+                        break;
+                    }
+                }
+                for(City city : cities.values()){
+                    if(city.getCountryCode().equals(code)){
+                        reportCountry.add(city);
+                    }
+                }
+                reportCountry.sort(Comparator.comparing(City::getPopulation).reversed());
+                if(nProvided == 0){
+                    return reportCountry;
+                }
+                else{
+                    return reportCountry.subList(0,nProvided);
+                }
             default:
                 List<City> report = new ArrayList<>(cities.values());
                 report.sort(Comparator.comparing(City::getPopulation).reversed());
