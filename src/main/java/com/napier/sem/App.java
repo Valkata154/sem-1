@@ -27,7 +27,10 @@ public class App {
         }*/
 
         //cityR.GetCityPopulationReport("London");
-        cityR.GetDistrictPopulationReport("England");
+        //cityR.GetDistrictPopulationReport("England");
+        //countryR.GetRegionPopulationReport("North America");
+        //countryR.GetContinentPopulationReport("North America");
+        countryR.GetWorldPopulationReport();
 
         //Disconnect from database
         db.disconnect();

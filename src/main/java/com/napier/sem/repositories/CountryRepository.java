@@ -1,5 +1,6 @@
 package com.napier.sem.repositories;
 
+import com.napier.sem.domain.City;
 import com.napier.sem.domain.Country;
 import com.napier.sem.storage.Database;
 
@@ -104,4 +105,50 @@ public class CountryRepository implements ICountryRepository {
         }
 
     }
+
+    public void GetRegionPopulationReport(String r){
+        int region_population = 0;
+        int number_of_countries = 0;
+
+        for(Country country : countries.values()){
+            if(country.getRegion().equals(r)){
+                region_population += country.getPopulation();
+                number_of_countries++;
+            }
+        }
+        System.out.println("region: " + r + ", population: " + region_population + ", number of countries: " + number_of_countries);
+
+    }
+    public void GetCountryPopulationReport(String c){
+        for(Country country : countries.values()){
+            if(country.getName().equals(c)){
+                System.out.println("country: " + c + ", population: " + country.getPopulation());
+
+            }
+        }
+
+    }
+    public void GetContinentPopulationReport(String c){
+        int continent_population = 0;
+        int number_of_countries = 0;
+
+        for(Country country : countries.values()){
+            if(country.getContinent().equals(c)){
+                continent_population += country.getPopulation();
+                number_of_countries++;
+            }
+        }
+        System.out.println("continent: " + c + ", population: " + continent_population + ", number of countries: " + number_of_countries);
+
+    }
+    public void GetWorldPopulationReport()
+    {
+        int world_population = 0;
+
+        for(Country country : countries.values()){
+            world_population += country.getPopulation();
+        }
+        System.out.println("Population of the world: " + world_population);
+    }
+
 }
