@@ -148,4 +148,12 @@ public class CityRepository implements ICityRepository {
         }
 
     }
+
+    public void GetCityPopulationReport(String c){
+        for(City city : cities.values()){
+            if(city.getName().equals(c)){
+                System.out.println(city.getName() + ", " + city.getCountryCode() + ", " + city.getDistrict() + ", " +  "population: " + city.getPopulation());
+            }
+        }
+    }
 }

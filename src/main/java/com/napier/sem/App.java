@@ -22,11 +22,14 @@ public class App {
         /*for(Country country : countryR.getAllByPopulation("","", 5)){
             System.out.println(country.toString());
         }*/
-        for(City city : cityR.getAllByPopulation(countryR,"district", "Katalonia", 0)){
+        /*for (City city : cityR.getAllByPopulation(countryR, "district", "Katalonia", 0)) {
             System.out.println(city.toString());
-        }
+        }*/
+
+        cityR.GetCityPopulationReport("London");
 
         //Disconnect from database
         db.disconnect();
     }
+
 }
