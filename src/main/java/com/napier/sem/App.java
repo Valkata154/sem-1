@@ -26,7 +26,8 @@ public class App {
             System.out.println(city.toString());
         }*/
 
-        cityR.GetCityPopulationReport("London");
+        //cityR.GetCityPopulationReport("London");
+        cityR.GetDistrictPopulationReport("England");
 
         //Disconnect from database
         db.disconnect();
