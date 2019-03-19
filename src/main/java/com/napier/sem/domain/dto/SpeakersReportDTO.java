@@ -6,6 +6,18 @@ public class SpeakersReportDTO {
     private int speakers;
     private float percentage;
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public int getSpeakers() {
+        return speakers;
+    }
+
+    public float getPercentage() {
+        return percentage;
+    }
+
     public SpeakersReportDTO(String language, int speakers, float percentage) {
         this.language = language;
         this.speakers = speakers;
