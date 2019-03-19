@@ -1,9 +1,9 @@
 package com.napier.sem;
 
-import com.napier.sem.domain.City;
+import com.napier.sem.reports.LanguageReports;
 import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.CountryRepository;
-import com.napier.sem.domain.Country;
+import com.napier.sem.repositories.LanguageRepository;
 import com.napier.sem.storage.Database;
 
 public class App {
@@ -18,6 +18,7 @@ public class App {
 
         CityRepository cityR = new CityRepository(db);
         CountryRepository countryR = new CountryRepository(db);
+        LanguageRepository langR = new LanguageRepository(db);
 
         /*for(Country country : countryR.getAllByPopulation("","", 5)){
             System.out.println(country.toString());
@@ -29,6 +30,14 @@ public class App {
         //cityR.GetCityPopulationReport("London");
         cityR.GetDistrictPopulationReport("England");
 
+
+        // Languages reports
+        LanguageReports languageReports = new LanguageReports(langR, countryR);
+        System.out.println(languageReports.getLanguageSpeakers("Chinese"));
+        System.out.println(languageReports.getLanguageSpeakers("English"));
+        System.out.println(languageReports.getLanguageSpeakers("Hindi"));
+        System.out.println(languageReports.getLanguageSpeakers("Spanish"));
+        System.out.println(languageReports.getLanguageSpeakers("Arabic"));
         //Disconnect from database
         db.disconnect();
     }
