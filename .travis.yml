@@ -11,7 +11,7 @@ services:
 
 install:
   - docker-compose up -d mysql && docker-compose down
-  - docker run --rm -d -e MYSQL_ROOT_PASSWORD=example
+  - docker-compose run -d mysql -e MYSQL_ROOT_PASSWORD=secret
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
@@ -25,7 +25,7 @@ jobs:
       script: mvn test -Dtest=com.napier.sem.LanguageReportTest
     - stage: integration tests
       jdk: oraclejdk11
-      script: docker-compose up -d mysql && sleep 60 && mvn test -Dtest=com.napier.sem.AppIntegrationTest && docker-compose down
+      script: sleep 60 && mvn test -Dtest=com.napier.sem.AppIntegrationTest
     - stage: deploy
       install: skip
       jdk: oraclejdk11
