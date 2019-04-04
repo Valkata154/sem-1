@@ -1,6 +1,8 @@
 package com.napier.sem;
 
+import com.napier.sem.domain.Language;
 import com.napier.sem.reports.LanguageReports;
+import com.napier.sem.reports.CountryReports;
 import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.CountryRepository;
 import com.napier.sem.repositories.LanguageRepository;
@@ -20,27 +22,25 @@ public class App {
         CountryRepository countryR = new CountryRepository(db);
         LanguageRepository langR = new LanguageRepository(db);
 
-        /*for(Country country : countryR.getAllByPopulation("","", 5)){
-            System.out.println(country.toString());
-        }*/
-        /*for (City city : cityR.getAllByPopulation(countryR, "district", "Katalonia", 0)) {
-            System.out.println(city.toString());
-        }*/
+        CountryReports countryReports = new CountryReports(countryR);
+        System.out.println(countryReports.getAllByPopulation("","",5));
 
         //cityR.GetCityPopulationReport("London");
         //cityR.GetDistrictPopulationReport("England");
         //countryR.GetRegionPopulationReport("North America");
         //countryR.GetContinentPopulationReport("North America");
-        countryR.GetWorldPopulationReport();
+        //countryR.GetWorldPopulationReport();
 
 
         // Languages reports
+        /*
         LanguageReports languageReports = new LanguageReports(langR, countryR);
         System.out.println(languageReports.getLanguageSpeakers("Chinese"));
         System.out.println(languageReports.getLanguageSpeakers("English"));
         System.out.println(languageReports.getLanguageSpeakers("Hindi"));
         System.out.println(languageReports.getLanguageSpeakers("Spanish"));
         System.out.println(languageReports.getLanguageSpeakers("Arabic"));
+        */
         //Disconnect from database
         db.disconnect();
     }
