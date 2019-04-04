@@ -36,7 +36,11 @@ public class CountryReports {
                 List<CountryReportDTO> reportContinent = new ArrayList<>();
                 for (Country country : countryRepository.getAll()){
                     if(country.getContinent().equals(name)){
-                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), cityR.getId(country.getCapital()).getName());
+                        String capital = "No capital";
+                        if(cityR.getId(country.getCapital()) != null){
+                            capital = cityR.getId(country.getCapital()).getName();
+                        }
+                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), capital);
                         reportContinent.add(countrydto);
                     }
                 }
@@ -51,7 +55,11 @@ public class CountryReports {
                 List<CountryReportDTO> reportRegion = new ArrayList<>();
                 for (Country country : countryRepository.getAll()){
                     if(country.getRegion().equals(name)){
-                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), cityRepository.getId(country.getCapital()).getName());
+                        String capital = "No capital";
+                        if(cityR.getId(country.getCapital()) != null){
+                            capital = cityR.getId(country.getCapital()).getName();
+                        }
+                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), capital);
                         reportRegion.add(countrydto);
                     }
                 }
@@ -65,7 +73,12 @@ public class CountryReports {
             default:
                 List<CountryReportDTO> report = new ArrayList<>();
                 for(Country country : countryRepository.getAll()){
-                    CountryReportDTO countrydto = new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), cityRepository.getId(country.getCapital()).getName());
+                    String capital = "No capital";
+                    if(cityR.getId(country.getCapital()) != null){
+                        capital = cityR.getId(country.getCapital()).getName();
+                    }
+
+                    CountryReportDTO countrydto = new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), capital);
                     report.add(countrydto);
                 }
                 report.sort(Comparator.comparing(CountryReportDTO::getPopulation).reversed());

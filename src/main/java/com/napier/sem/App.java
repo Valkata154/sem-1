@@ -22,14 +22,13 @@ public class App {
         CountryRepository countryR = new CountryRepository(db);
         LanguageRepository langR = new LanguageRepository(db);
 
-        CountryReports countryReports = new CountryReports(countryR);
-        System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
-
         //cityR.GetCityPopulationReport("London");
         //cityR.GetDistrictPopulationReport("England");
         //countryR.GetRegionPopulationReport("North America");
         //countryR.GetContinentPopulationReport("North America");
         //countryR.GetWorldPopulationReport();
+        CountryReports countryReports = new CountryReports(countryR);
+        System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
 
 
         // Languages reports
