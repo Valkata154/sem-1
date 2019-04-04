@@ -23,7 +23,7 @@ public class App {
         LanguageRepository langR = new LanguageRepository(db);
 
         CountryReports countryReports = new CountryReports(countryR);
-        System.out.println(countryReports.getAllByPopulation("","",5));
+        System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
 
         //cityR.GetCityPopulationReport("London");
         //cityR.GetDistrictPopulationReport("England");

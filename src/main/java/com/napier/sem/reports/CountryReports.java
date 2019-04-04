@@ -2,6 +2,7 @@ package com.napier.sem.reports;
 
 import com.napier.sem.domain.Country;
 import com.napier.sem.domain.dto.CountryReportDTO;
+import com.napier.sem.repositories.CityRepository;
 import com.napier.sem.repositories.ICityRepository;
 import com.napier.sem.repositories.ICountryRepository;
 
@@ -22,19 +23,20 @@ public class CountryReports {
     /**
      *This method returns a list with all the countries in the world, in a continent or in a region ordered by population.
      * By default it returns the list with all the countries in the world.
+     * @param cityR gets the city repository in order to get missing information for certain reports
      * @param where dictates whether we are comparing within a continent or a region
      * @param name chooses the continent or region
      * @param nProvided says the number of countries that should be selected from the resulting list
      *
      * @return A list with either all or the first N countries in the world, in a continent or in a region ordered by population.
      */
-    public Collection<CountryReportDTO> getAllByPopulation(String where, String name, int nProvided){
+    public Collection<CountryReportDTO> getAllByPopulation(CityRepository cityR, String where, String name, int nProvided){
         switch (where){
             case "continent":
                 List<CountryReportDTO> reportContinent = new ArrayList<>();
                 for (Country country : countryRepository.getAll()){
                     if(country.getContinent().equals(name)){
-                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), cityRepository.getId(country.getCapital()).getName());
+                        CountryReportDTO countrydto= new CountryReportDTO(country.getISO3Code(), country.getName(), country.getContinent(), country.getRegion(), country.getPopulation(), cityR.getId(country.getCapital()).getName());
                         reportContinent.add(countrydto);
                     }
                 }
