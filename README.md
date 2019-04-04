@@ -10,5 +10,5 @@ Usage:
  - Open Maven panel on the right
  - Click Compile, wait to finish
  - Click Package, wait to finish
- - In terminal, run "docker-compose up"
+ - In terminal, run "docker-compose run app"
  - Profit

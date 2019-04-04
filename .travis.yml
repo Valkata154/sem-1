@@ -4,14 +4,12 @@ sudo: false
 
 addons:
   hosts:
-    - db
+    - mysql
 
 services:
   - docker
 
 install:
-  - docker-compose up -d mysql && docker-compose down
-  - docker-compose run -d mysql -e MYSQL_ROOT_PASSWORD=secret
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
@@ -25,7 +23,7 @@ jobs:
       script: mvn test -Dtest=com.napier.sem.LanguageReportTest
     - stage: integration tests
       jdk: oraclejdk11
-      script: sleep 180 && mvn test -Dtest=com.napier.sem.AppIntegrationTest
+      script: docker-compose run integration_tests
     - stage: deploy
       install: skip
       jdk: oraclejdk11
