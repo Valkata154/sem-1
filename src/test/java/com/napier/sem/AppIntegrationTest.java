@@ -14,7 +14,7 @@ class AppIntegrationTest {
 
     @BeforeAll
     static void init() {
-        Database db = new Database("mysql://mysql:3306/world", "root", "secret");
+        Database db = new Database("mysql://mysql:3306/world", "root", "albert-sapo");
         countryRepository = new CountryRepository(db);
     }
 
