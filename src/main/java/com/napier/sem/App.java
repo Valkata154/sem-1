@@ -30,7 +30,7 @@ public class App {
         //System.out.println(countryR.GetCountryPopulationReport("Ukraine"));
         System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
 
-        CountryReports countryReports = new CountryReports(countryR);
+        //CountryReports countryReports = new CountryReports(countryR);
         //System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
 
 
