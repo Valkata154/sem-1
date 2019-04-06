@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import com.napier.sem.domain.Language;
+import com.napier.sem.reports.CityAndCountryReports;
 import com.napier.sem.reports.LanguageReports;
 import com.napier.sem.reports.CountryReports;
 import com.napier.sem.repositories.CityRepository;
@@ -22,11 +23,14 @@ public class App {
         CountryRepository countryR = new CountryRepository(db);
         LanguageRepository langR = new LanguageRepository(db);
 
+        CityAndCountryReports candcreports = new CityAndCountryReports(cityR, countryR);
 
-        System.out.println(countryR.GetRegionPopulationReport("North America"));
-        System.out.println(countryR.GetCountryPopulationReport("Ukraine"));
 
-        //CountryReports countryReports = new CountryReports(countryR);
+        //System.out.println(countryR.GetRegionPopulationReport("North America"));
+        //System.out.println(countryR.GetCountryPopulationReport("Ukraine"));
+        System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
+
+        CountryReports countryReports = new CountryReports(countryR);
         //System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
 
 
