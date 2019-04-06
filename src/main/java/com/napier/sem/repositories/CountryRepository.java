@@ -55,26 +55,34 @@ public class CountryRepository implements ICountryRepository {
     }
 
 
-    public void GetRegionPopulationReport(String r){
+    public String GetRegionPopulationReport(String r){
         int region_population = 0;
         int number_of_countries = 0;
+        String result;
 
         for(Country country : countries.values()){
             if(country.getRegion().equals(r)){
                 region_population += country.getPopulation();
                 number_of_countries++;
+
             }
         }
-        System.out.println("region: " + r + ", population: " + region_population + ", number of countries: " + number_of_countries);
+        result = "Region: " + r + ", population: " + region_population + ", number of countries: " + number_of_countries;
+        return result;
+
 
     }
-    public void GetCountryPopulationReport(String c){
+    public String GetCountryPopulationReport(String c){
+        String result;
+        int popln = 0;
         for(Country country : countries.values()){
             if(country.getName().equals(c)){
-                System.out.println("country: " + c + ", population: " + country.getPopulation());
-
+                popln = country.getPopulation();
             }
+
         }
+        result = "Country: " + c + ", population: " + popln;
+        return result;
 
     }
     public void GetContinentPopulationReport(String c){
