@@ -26,9 +26,12 @@ public class App {
         CityAndCountryReports candcreports = new CityAndCountryReports(cityR, countryR);
 
 
-        //System.out.println(countryR.GetRegionPopulationReport("North America"));
-        //System.out.println(countryR.GetCountryPopulationReport("Ukraine"));
+        System.out.println(candcreports.GetCityPopulationReport("London"));
+        System.out.println(candcreports.GetDistrictPopulationReport("Katalonia"));
         System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
+        System.out.println(candcreports.GetRegionPopulationReport("Eastern Europe"));
+        System.out.println(candcreports.GetContinentPopulationReport("Europe"));
+        System.out.println(candcreports.GetWorldPopulationReport());
 
         //CountryReports countryReports = new CountryReports(countryR);
         //System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
