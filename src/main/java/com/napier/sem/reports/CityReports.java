@@ -32,7 +32,7 @@ public class CityReports {
      *
      * @return A list with either all or the first N cities in the world, in a continent, in a region, in a country or in a district ordered by population.
      */
-    public Collection<CityReportDTO> getAllByPopulation(CountryRepository countryR, String where, String name, int nProvided) {
+    public List<CityReportDTO> getAllByPopulation(CountryRepository countryR, String where, String name, int nProvided) {
         switch (where) {
             case "district":
                 List<CityReportDTO> reportDistrict = new ArrayList<>();

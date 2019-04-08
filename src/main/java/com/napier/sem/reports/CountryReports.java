@@ -29,7 +29,7 @@ public class CountryReports {
      *
      * @return A list with either all or the first N countries in the world, in a continent or in a region ordered by population.
      */
-    public Collection<CountryReportDTO> getAllByPopulation(CityRepository cityR, String where, String name, int nProvided){
+    public List<CountryReportDTO> getAllByPopulation(ICityRepository cityR, String where, String name, int nProvided){
         switch (where){
             case "continent":
                 List<CountryReportDTO> reportContinent = new ArrayList<>();
