@@ -16,10 +16,9 @@ import java.util.List;
 
 public class CityReports {
 
-    private ICountryRepository countryRepository;
     private ICityRepository cityRepository;
 
-    public CityReports(ICityRepository countryRepository) {
+    public CityReports(ICityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 
@@ -60,7 +59,7 @@ public class CityReports {
                 }
                 for (City city : cityRepository.getAll()) {
                     if (city.getCountryCode().equals(codeCountry)) {
-                        CityReportDTO citydto = new CityReportDTO(city.getName(), "", city.getDistrict(), city.getPopulation());
+                        CityReportDTO citydto = new CityReportDTO(city.getName(), countryR.getCode(city.getCountryCode()).getName(), city.getDistrict(), city.getPopulation());
                         reportCountry.add(citydto);
                     }
                 }
@@ -81,7 +80,7 @@ public class CityReports {
                 for (Country country : countriesInRegion) {
                     for (City city : cityRepository.getAll()) {
                         if (city.getCountryCode().equals(country.getISO3Code())) {
-                            CityReportDTO citydto = new CityReportDTO(city.getName(), "", city.getDistrict(), city.getPopulation());
+                            CityReportDTO citydto = new CityReportDTO(city.getName(), countryR.getCode(city.getCountryCode()).getName(), city.getDistrict(), city.getPopulation());
                             reportRegion.add(citydto);
                         }
                     }
@@ -103,7 +102,7 @@ public class CityReports {
                 for (Country country : countriesInContinent) {
                     for (City city : cityRepository.getAll()) {
                         if (city.getCountryCode().equals(country.getISO3Code())) {
-                            CityReportDTO citydto = new CityReportDTO(city.getName(), "", city.getDistrict(), city.getPopulation());
+                            CityReportDTO citydto = new CityReportDTO(city.getName(), countryR.getCode(city.getCountryCode()).getName(), city.getDistrict(), city.getPopulation());
                             reportContinent.add(citydto);
                         }
                     }
@@ -117,7 +116,7 @@ public class CityReports {
             default:
                 List<CityReportDTO> report = new ArrayList<>();
                 for (City city : cityRepository.getAll()) {
-                    CityReportDTO citydto = new CityReportDTO(city.getName(), "", city.getDistrict(), city.getPopulation());
+                    CityReportDTO citydto = new CityReportDTO(city.getName(), countryR.getCode(city.getCountryCode()).getName(), city.getDistrict(), city.getPopulation());
                     report.add(citydto);
                 }
                 report.sort(Comparator.comparing(CityReportDTO::getPopulation).reversed());

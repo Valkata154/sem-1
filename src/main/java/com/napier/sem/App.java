@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.domain.Language;
 import com.napier.sem.reports.CityAndCountryReports;
+import com.napier.sem.reports.CityReports;
 import com.napier.sem.reports.LanguageReports;
 import com.napier.sem.reports.CountryReports;
 import com.napier.sem.repositories.CityRepository;
@@ -25,16 +26,20 @@ public class App {
 
         CityAndCountryReports candcreports = new CityAndCountryReports(cityR, countryR);
 
-
+        /*
         System.out.println(candcreports.GetCityPopulationReport("London"));
         System.out.println(candcreports.GetDistrictPopulationReport("Katalonia"));
         System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
         System.out.println(candcreports.GetRegionPopulationReport("Eastern Europe"));
         System.out.println(candcreports.GetContinentPopulationReport("Europe"));
         System.out.println(candcreports.GetWorldPopulationReport());
+         */
 
-        //CountryReports countryReports = new CountryReports(countryR);
-        //System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
+        CountryReports countryReports = new CountryReports(countryR);
+        System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
+
+        CityReports cityReports = new CityReports(cityR);
+        System.out.println(cityReports.getAllByPopulation(countryR,"","",5));
 
 
         // Languages reports

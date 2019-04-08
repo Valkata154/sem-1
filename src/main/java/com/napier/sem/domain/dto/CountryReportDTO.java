@@ -44,6 +44,6 @@ public class CountryReportDTO {
 
     @Override
     public String toString() {
-        return "Code: " + code + " Name: " + name + " Continent: " + continent + " Region: " + region + " Population: " + population + " Capital: " + capital;
+        return "Code: " + code + " Name: " + name + " Continent: " + continent + " Region: " + region + " Population: " + population + " Capital: " + capital + "\n";
     }
 }

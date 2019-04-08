@@ -14,7 +14,6 @@ import java.util.List;
 public class CountryReports {
 
     private ICountryRepository countryRepository;
-    private ICityRepository cityRepository;
 
     public CountryReports(ICountryRepository countryRepository) {
         this.countryRepository = countryRepository;
