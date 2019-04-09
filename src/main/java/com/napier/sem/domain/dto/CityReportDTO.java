@@ -35,6 +35,6 @@ public class CityReportDTO {
 
     @Override
     public String toString() {
-        return " Name: " + name + " Country: " + country + " District: " + district + " Population: " + population + "\n";
+        return "Name: " + name + " Country: " + country + " District: " + district + " Population: " + population + "\n";
     }
 }
