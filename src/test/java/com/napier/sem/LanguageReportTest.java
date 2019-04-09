@@ -18,7 +18,7 @@ class LanguageReportTest {
     @Test
     void percentageCalculationTest() {
         float bulgarianSpeakersPercentage = reports.getLanguageSpeakers("Bulgarian").getPercentage();
-        assertEquals(18.181818f, bulgarianSpeakersPercentage);
+        assertEquals(0.019990005f, bulgarianSpeakersPercentage);
     }
 
     @Test
