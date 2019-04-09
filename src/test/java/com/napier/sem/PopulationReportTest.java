@@ -31,17 +31,17 @@ class PopulationReportTest {
 
     @Test
     void CountryPopulationTest(){
-        assertEquals("Country: United States, total population: 5000000, population living in cities: 572059 (11%), outside of cities: 4427941 (89%)", reports.GetCountryPopulationReport("United States"));
+        assertEquals("Country: United States, total population: 5000000.0, population living in cities: 572059.0 (11%), outside of cities: 4427941.0 (89%)", reports.GetCountryPopulationReport("United States"));
     }
 
     @Test
     void RegionPopulationTest(){
-        assertEquals("Region: North America, total population: 5000000, population living in cities: 572059 (11%), outside of cities: 4427941 (89%)", reports.GetRegionPopulationReport("North America"));
+        assertEquals("Region: North America, total population: 5000000.0, population living in cities: 572059.0 (11%), outside of cities: 4427941.0 (89%)", reports.GetRegionPopulationReport("North America"));
     }
 
     @Test
     void ContinentPopulationTest(){
-        assertEquals("Continent: North America, total population: 5000000, population living in cities: 572059 (11%), outside of cities: 4427941 (89%)", reports.GetContinentPopulationReport("North America"));
+        assertEquals("Continent: North America, total population: 5000000.0, population living in cities: 572059.0 (11%), outside of cities: 4427941.0 (89%)", reports.GetContinentPopulationReport("North America"));
 
     }
 
