@@ -47,7 +47,7 @@ public class CityAndCountryReports {
         double percentage_outside_of_cities = 100 - percentage_in_cities;
 
         if(c != null) {
-            result = "Country: " + c + ", total_population: " + total_population + ", population living in cities: " + population_in_cities + " (" + percentage_in_cities + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + percentage_outside_of_cities + "%)";
+            result = "Country: " + c + ", total population: " + total_population + ", population living in cities: " + population_in_cities + " (" + Math.round(percentage_in_cities) + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + Math.round(percentage_outside_of_cities) + "%)";
         }
         else {
             result = "Given country doesn't exist";
@@ -133,7 +133,7 @@ public class CityAndCountryReports {
         double percentage_outside_of_cities = 100 - percentage_in_cities;
 
         if(r != null) {
-            result = "Region: " + r + ", total population: " + region_population + ", population living in cities: " + population_in_cities + " (" + percentage_in_cities + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + percentage_outside_of_cities + "%)";
+            result = "Region: " + r + ", total population: " + region_population + ", population living in cities: " + population_in_cities + " (" + Math.round(percentage_in_cities) + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + Math.round(percentage_outside_of_cities) + "%)";
         }
         else {
             result = "Given region doesn't exist";
@@ -176,7 +176,7 @@ public class CityAndCountryReports {
         double percentage_outside_of_cities = 100 - percentage_in_cities;
 
         if(c != null) {
-            result = "Continent: " + c + ", total population: " + continent_population + ", population living in cities: " + population_in_cities + " (" + percentage_in_cities + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + percentage_outside_of_cities + "%)";
+            result = "Continent: " + c + ", total population: " + continent_population + ", population living in cities: " + population_in_cities + " (" + Math.round(percentage_in_cities) + "%)" + ", outside of cities: " + population_outside_of_cities + " (" + Math.round(percentage_outside_of_cities) + "%)";
         }
         else {
             result = "Given continent doesn't exist";
