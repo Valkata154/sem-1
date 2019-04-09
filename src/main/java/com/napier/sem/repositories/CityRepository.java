@@ -1,12 +1,12 @@
 package com.napier.sem.repositories;
 
 import com.napier.sem.domain.City;
+import com.napier.sem.domain.Country;
 import com.napier.sem.storage.Database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 public class CityRepository implements ICityRepository {
 
