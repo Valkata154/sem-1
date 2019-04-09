@@ -76,7 +76,7 @@ jobs:
         # Authenticate against Google's Docker image manager.
         - gcloud auth configure-docker
         # Build the database image.
-        - docker build -t gcr.io/${PROJECT_ID}/db db/.
+        - docker build -t gcr.io/${PROJECT_ID}/docker/database db/.
         # Push the database image.
         - docker push gcr.io/${PROJECT_ID}/db
         # Create a container cluster.  We only need one node.
