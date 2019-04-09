@@ -30,7 +30,7 @@ class LanguageReportTest {
     @Test
     void summingTest() {
         float englishSpeakers = reports.getLanguageSpeakers("English").getSpeakers();
-        assertEquals(3500, englishSpeakers);
+        assertEquals(5000500, englishSpeakers);
     }
 
 }

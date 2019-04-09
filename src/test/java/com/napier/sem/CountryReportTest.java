@@ -22,13 +22,13 @@ class CountryReportTest {
     @Test
     void getFromWorld() {
         CountryReportDTO country = reports.getAllByPopulation(city,"","",0).get(0);
-        assertEquals(3000,country.getPopulation());
+        assertEquals(5000000,country.getPopulation());
         assertEquals("United States", country.getName());
         assertEquals("North America",country.getContinent());
         assertEquals("USA",country.getCode());
         assertEquals("North America", country.getRegion());
         assertEquals("Washington", country.getCapital());
-        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 3000 Capital: Washington\n", country.toString());
+        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 5000000 Capital: Washington\n", country.toString());
     }
 
     @Test
@@ -36,13 +36,13 @@ class CountryReportTest {
 
         CountryReportDTO country = reports.getAllByPopulation(city,"continent","North America", 0).get(0);
 
-        assertEquals(3000,country.getPopulation());
+        assertEquals(5000000,country.getPopulation());
         assertEquals("United States", country.getName());
         assertEquals("North America",country.getContinent());
         assertEquals("USA",country.getCode());
         assertEquals("North America", country.getRegion());
         assertEquals("Washington", country.getCapital());
-        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 3000 Capital: Washington\n", country.toString());
+        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 5000000 Capital: Washington\n", country.toString());
     }
 
     @Test
@@ -50,13 +50,13 @@ class CountryReportTest {
 
         CountryReportDTO country = reports.getAllByPopulation(city,"region","North America", 0).get(0);
 
-        assertEquals(3000,country.getPopulation());
+        assertEquals(5000000,country.getPopulation());
         assertEquals("United States", country.getName());
         assertEquals("North America",country.getContinent());
         assertEquals("USA",country.getCode());
         assertEquals("North America", country.getRegion());
         assertEquals("Washington", country.getCapital());
-        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 3000 Capital: Washington\n", country.toString());
+        assertEquals("Code: USA Name: United States Continent: North America Region: North America Population: 5000000 Capital: Washington\n", country.toString());
     }
 
 }
