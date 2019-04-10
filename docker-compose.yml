@@ -21,7 +21,7 @@ services:
       WAIT_SLEEP_INTERVAL: 5
   # db is is db folder
   mysql:
-    image: mysql
+    build: ./docker/database
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
@@ -29,7 +29,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: albert-sapo
     ports:
-      - "33060:3306"
+      - "3306:3306"
     expose:
       - "3306"
 
