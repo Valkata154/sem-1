@@ -1,6 +1,6 @@
 language: java
 
-sudo: false
+sudo: required
 
 addons:
   hosts:
@@ -17,6 +17,7 @@ install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
+  - sudo /etc/init.d/mysql stop
   - mvn clean
 
 jobs:
