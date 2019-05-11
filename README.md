@@ -18,36 +18,36 @@ Usage:
  | ID  | Name          | Met           | Screenshot     |
   | ---|:-------------:| -------------:| --------------:|
   | 1  | Generate report with the population of a city |          Yes |       ![pic](./img/1.PNG)     |
-  | 2  | Generate report with the population of a district |          Yes |           0.25 |
-  | 3  | Generate report with the population of a country|          Yes |           0.25 |
-  | 4  | Generate report with the population of a region |          Yes |           0.25 |
-  | 5  | Generate report with the population of a continent |          Yes |           0.25 |
-  | 6  | Generate report with the population of the world |          Yes |           0.25 |
-  | 7  | Generate report with the population of people, people living in cities, and people not living in cities in each country |          Yes |           0.25 |
-  | 8  | Generate report with the population of people, people living in cities, and people not living in cities in each region |          Yes |           0.25 |
-  | 9  | Generate report with the population of people, people living in cities, and people not living in cities in each continent |          Yes |           0.25 |
-  | 10 | Generate report with the top N populated cities in a district where N is provided by the user |          Yes |           0.25 |
-  | 11 | Generate report with the top N populated cities in a country where N is provided by the user. |          Yes |           0.25 |
-  | 12 | Generate report with the top N populated cities in a region where N is provided by the user |          Yes |           0.25 |
-  | 13 | Generate report with the top N populated cities in a continent where N is provided by the user |          Yes |           0.25 |
-  | 14 | Generate report with the top N populated cities in the world where N is provided by the user |          Yes |           0.25 |
-  | 15 | Generate report with the top N populated countries in a continent where N is provided by the user |          Yes |           0.25 |
-  | 16 | Generate report with the top N populated countries in the world where N is provided by the user |          Yes |           0.25 |
-  | 17 | Generate report with all the countries in a region organised by largest population to smallest |          Yes |           0.25 |
-  | 18 | Generate report with all the countries in a continent organised by largest population to smallest |          Yes |           0.25 |
-  | 19 | Generate a report with all the countries in the world organised by largest population to smallest |          Yes |           0.25 |
-  | 20 | Generate report with the top N populated countries in a region where N is provided by the user. |          Yes |           0.25 |
-  | 21 | Generate report for Arabic |          Yes |           0.25 |
-  | 22 | Generate report for Spanish |          Yes |           0.25 |
-  | 23 | Generate report for Hindi |          Yes |           0.25 |
-  | 24 | Generate report for English |          Yes |           0.25 |
-  | 25 | Generate Report for Chinese |          Yes |           0.25 |
-  | 26 | Generate report with the top N populated capital cities in a region where N is provided by the user |          No |           0.25 |
-  | 27 | Generate report with the top N populated capital cities in a continent where N is provided by the user |          No |           0.25 |
-  | 28 | Generate report with the top N populated capital cities in the world where N is provided by the user |          No |           0.25 |
-  | 29 | Generate report with all the capital cities in a region organised by largest to smallest |          No |           0.25 |
-  | 30 | Generate report with all the capital cities in a continent organised by largest population to smallest. |          No |           0.25 |
-  | 31 | Generate report with all the capital cities in the world organised by largest population to smallest |          No |           0.25 |
+  | 2  | Generate report with the population of a district |          Yes |           ![pic](./img/2.PNG) |
+  | 3  | Generate report with the population of a country|          Yes |           ![pic](./img/3.PNG) |
+  | 4  | Generate report with the population of a region |          Yes |           ![pic](./img/4.PNG) |
+  | 5  | Generate report with the population of a continent |          Yes |           ![pic](./img/5.PNG)|
+  | 6  | Generate report with the population of the world |          Yes |           ![pic](./img/6.PNG) |
+  | 7  | Generate report with the population of people, people living in cities, and people not living in cities in each country |          Yes |           ![pic](./img/7-11.PNG) |
+  | 8  | Generate report with the population of people, people living in cities, and people not living in cities in each region |          Yes |           ![pic](./img/8-12.PNG) |
+  | 9  | Generate report with the population of people, people living in cities, and people not living in cities in each continent |          Yes |           ![pic](./img/9-13.PNG) |
+  | 10 | Generate report with the top N populated cities in a district where N is provided by the user |          Yes |           ![pic](./img/10.PNG) |
+  | 11 | Generate report with the top N populated cities in a country where N is provided by the user. |          Yes |           ![pic](./img/7-11.PNG) |
+  | 12 | Generate report with the top N populated cities in a region where N is provided by the user |          Yes |           ![pic](./img/8-12.PNG) |
+  | 13 | Generate report with the top N populated cities in a continent where N is provided by the user |          Yes |           ![pic](./img/9-13.PNG) |
+  | 14 | Generate report with the top N populated cities in the world where N is provided by the user |          Yes |           ![pic](./img/14.PNG) |
+  | 15 | Generate report with the top N populated countries in a continent where N is provided by the user |          Yes |           ![pic](./img/15-18.PNG) |
+  | 16 | Generate report with the top N populated countries in the world where N is provided by the user |          Yes |           ![pic](./img/16-19.PNG) |
+  | 17 | Generate report with all the countries in a region organised by largest population to smallest |          Yes |           ![pic](./img/17-20.PNG) |
+  | 18 | Generate report with all the countries in a continent organised by largest population to smallest |          Yes |           ![pic](./img/15-18.PNG) |
+  | 19 | Generate a report with all the countries in the world organised by largest population to smallest |          Yes |           ![pic](./img/16-19.PNG) |
+  | 20 | Generate report with the top N populated countries in a region where N is provided by the user. |          Yes |           ![pic](./img/17-20.PNG) |
+  | 21 | Generate report for Arabic |          Yes |           ![pic](./img/21.PNG) |
+  | 22 | Generate report for Spanish |          Yes |           ![pic](./img/22.PNG) |
+  | 23 | Generate report for Hindi |          Yes |           ![pic](./img/23.PNG) |
+  | 24 | Generate report for English |          Yes |           ![pic](./img/24.PNG) |
+  | 25 | Generate Report for Chinese |          Yes |           ![pic](./img/25.PNG) |
+  | 26 | Generate report with the top N populated capital cities in a region where N is provided by the user |          No |           - |
+  | 27 | Generate report with the top N populated capital cities in a continent where N is provided by the user |          No |           - |
+  | 28 | Generate report with the top N populated capital cities in the world where N is provided by the user |          No |           - |
+  | 29 | Generate report with all the capital cities in a region organised by largest to smallest |          No |           - |
+  | 30 | Generate report with all the capital cities in a continent organised by largest population to smallest. |          No |           - |
+  | 31 | Generate report with all the capital cities in the world organised by largest population to smallest |          No |           - |
   | 32 |           |           |            |
  
  
