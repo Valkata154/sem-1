@@ -12,3 +12,10 @@ Usage:
  - Click Package, wait to finish
  - In terminal, run "docker-compose run app"
  - Profit
+ 
+ |                 | Code Review 1 | Code Review 2 | Code Review 3  | Code Review 4  | Final Deliverable | Average        |
+ | ----------------|:-------------:| -------------:| --------------:| --------------:| -----------------:| --------------:|
+ | Andrey Tsarev   |          0.25 |          0.25 |           0.25 |           0.50 |               0.4 |           0.33 |
+ | Albert Jacmenov |          0.25 |          0.25 |           0.25 |          0.167 |               0.2 |          0.223 |
+ | Martin Lipchev  |          0.25 |          0.25 |           0.25 |          0.167 |               0.2 |          0.223 |
+ | Marcos De Faria Perez|     0.25 |          0.25 |           0.25 |          0.167 |               0.2 |          0.223 |
