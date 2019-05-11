@@ -17,7 +17,7 @@ Usage:
  
  | ID  | Name          | Met           | Screenshot     |
   | ---|:-------------:| -------------:| --------------:|
-  | 1  | Generate report with the population of a city |          Yes |            |
+  | 1  | Generate report with the population of a city |          Yes |       ![pic](img/1.png)     |
   | 2  | Generate report with the population of a district |          Yes |           0.25 |
   | 3  | Generate report with the population of a country|          Yes |           0.25 |
   | 4  | Generate report with the population of a region |          Yes |           0.25 |
