@@ -26,31 +26,49 @@ public class App {
 
         CityAndCountryReports candcreports = new CityAndCountryReports(cityR, countryR);
 
-        /*
-        System.out.println(candcreports.GetCityPopulationReport("London"));
-        System.out.println(candcreports.GetDistrictPopulationReport("Katalonia"));
-        System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
-        System.out.println(candcreports.GetRegionPopulationReport("Eastern Europe"));
-        System.out.println(candcreports.GetContinentPopulationReport("Europe"));
-        System.out.println(candcreports.GetWorldPopulationReport());
-         */
+        //Population reports (Albert)
 
+        //#1
+        System.out.println(candcreports.GetCityPopulationReport("London"));
+        //#2
+        System.out.println(candcreports.GetDistrictPopulationReport("Katalonia"));
+        //#3
+        System.out.println(candcreports.GetCountryPopulationReport("Ukraine"));
+        //#4
+        System.out.println(candcreports.GetRegionPopulationReport("Eastern Europe"));
+        //#5
+        System.out.println(candcreports.GetContinentPopulationReport("Europe"));
+        //#6
+        System.out.println(candcreports.GetWorldPopulationReport());
+
+        //Get by population reports (Marcos)
+
+        //#7
         CountryReports countryReports = new CountryReports(countryR);
         System.out.println(countryReports.getAllByPopulation(cityR,"","",5));
 
+        //#8
         CityReports cityReports = new CityReports(cityR);
         System.out.println(cityReports.getAllByPopulation(countryR,"","",5));
 
 
-        // Languages reports
-        /*
+        // Languages reports (Andrey)
+
         LanguageReports languageReports = new LanguageReports(langR, countryR);
+        //#9
         System.out.println(languageReports.getLanguageSpeakers("Chinese"));
+        //#10
         System.out.println(languageReports.getLanguageSpeakers("English"));
+        //#11
         System.out.println(languageReports.getLanguageSpeakers("Hindi"));
+        //#12
         System.out.println(languageReports.getLanguageSpeakers("Spanish"));
+        //#13
         System.out.println(languageReports.getLanguageSpeakers("Arabic"));
-        */
+
+
+
+
         //Disconnect from database
         db.disconnect();
     }
