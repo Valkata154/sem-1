@@ -23,9 +23,9 @@ Usage:
   | 4  | Generate report with the population of a region |          Yes |           ![pic](./img/4.PNG) |
   | 5  | Generate report with the population of a continent |          Yes |           ![pic](./img/5.PNG)|
   | 6  | Generate report with the population of the world |          Yes |           ![pic](./img/6.PNG) |
-  | 7  | Generate report with the population of people, people living in cities, and people not living in cities in each country |          Yes |           ![pic](./img/7-11.PNG) |
-  | 8  | Generate report with the population of people, people living in cities, and people not living in cities in each region |          Yes |           ![pic](./img/8-12.PNG) |
-  | 9  | Generate report with the population of people, people living in cities, and people not living in cities in each continent |          Yes |           ![pic](./img/9-13.PNG) |
+  | 7  | Generate report with the population of people, people living in cities, and people not living in cities in each country |          Yes |           ![pic](./img/3.PNG) |
+  | 8  | Generate report with the population of people, people living in cities, and people not living in cities in each region |          Yes |           ![pic](./img/4.PNG) |
+  | 9  | Generate report with the population of people, people living in cities, and people not living in cities in each continent |          Yes |           ![pic](./img/5.PNG) |
   | 10 | Generate report with the top N populated cities in a district where N is provided by the user |          Yes |           ![pic](./img/10.PNG) |
   | 11 | Generate report with the top N populated cities in a country where N is provided by the user. |          Yes |           ![pic](./img/7-11.PNG) |
   | 12 | Generate report with the top N populated cities in a region where N is provided by the user |          Yes |           ![pic](./img/8-12.PNG) |
