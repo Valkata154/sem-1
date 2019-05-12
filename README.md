@@ -14,6 +14,8 @@ Usage:
  - In terminal, run "docker-compose run app"
  - Profit
  
+ 25 requirements of 32 have been implemented, which is 78.13%.
+ 
  
  | ID  | Name          | Met           | Screenshot     |
   | ---|:-------------:| -------------:| --------------:|
